@@ -1,0 +1,71 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home .createPost {
+  width: 50%;
+  height: 100px;
+  border: 2px solid rgba(0, 255, 115, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+}
+.home .createPost input {
+  width: 70%;
+  height: 50%;
+  border-radius: 80px;
+  left: 5%;
+  border: 2px solid rgba(0, 255, 115);
+  font-size: 20px;
+  position: absolute;
+}
+.home .createPost button {
+  position: absolute;
+  font-size: 20px;
+  width: 15%;
+  height: 30px;
+  line-height: 40px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: orange;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  transition: all 0.35s;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(0, 255, 115, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(0, 255, 115);
+  color: white;
+  border-radius: 80px;
+  text-align: center;
+  line-height: 17px;
+  right: 5%;
+}
+@media (max-width: 1000px){
+    .home .createPost {
+        width: 70%;
+    }
+}
+@media (max-width: 920px){
+    .home .createPost {
+        width: 80%;
+    }
+}
+
+@media (max-width: 550px){
+    .home .createPost {
+        width: 98%;
+    }
+}
+

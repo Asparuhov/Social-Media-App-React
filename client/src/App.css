@@ -1,0 +1,8 @@
+body {
+  background-image: url("./assets/backAuth.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+input {
+  border: 2px solid black;
+}

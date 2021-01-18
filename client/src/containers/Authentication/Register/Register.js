@@ -11,7 +11,7 @@ const Register = (props) => {
 
   const register = () => {
     axios
-      .post("http://localhost:4000/test", "testing")
+      .post("register", registerInfo)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };

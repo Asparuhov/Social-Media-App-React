@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { io } from "socket.io-client";
 import Authentication from "./containers/Authentication/Authentication";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import Main from "./containers/Main/Main";
 function App() {
+  const logged = false;
   return (
-    <div className="App">
-      <Authentication />
-    </div>
+    <Router>
+      <div className="App">
+        <Route to='/'> {logged ? <Main /> : <Authentication />}</Route>
+      </div>
+    </Router>
   );
 }
 

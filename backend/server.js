@@ -1,8 +1,9 @@
-const app = require("express")();
-const http = require("http").Server(app);
+const express = require("express");
 const cors = require("cors");
-
+const app = express();
+app.use(express.json());
 app.use(cors());
+const http = require("http").Server(app);
 const io = require("socket.io")(http, {
   cors: {
     origin: "http://localhost:3000",
@@ -19,8 +20,8 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use("/test", (req, res) => {
-  console.log("test works");
+app.use("/register", (req, res) => {
+  console.log(req.body);
 });
 
 http.listen(4000, () => {

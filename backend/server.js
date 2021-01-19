@@ -83,6 +83,7 @@ function authenticateToken(req, res, next) {
     console.log(user);
     req.user = {
       _id: user._id,
+      name: user.name,
       username: user.username,
       email: user.email,
     };

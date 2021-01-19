@@ -6,10 +6,10 @@ import * as actions from "../../../actions/actions";
 import { io } from "socket.io-client";
 const Home = (props) => {
   let [currentText, setCurrentText] = useState("");
-  const socket = io("http://localhost:4000/", {
+  const socket = io("https://social-chris.herokuapp.com/", {
     withCredentials: true,
     cors: {
-      origin: "http://localhost:4000",
+      origin: "https://social-chris.herokuapp.com",
     },
   });
   const sendPost = () => {

@@ -12,7 +12,7 @@ const http = require("http").Server(app);
 
 const io = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://social-media-react-964ef.web.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -61,7 +61,10 @@ app.post("/login", (req, res) => {
       bcrypt.compare(password, user.password, (err, result) => {
         if (err) throw err;
         if (result) {
-          const accessToken = jwt.sign(user.toJSON(), process.env.SECRET);
+          const accessToken = jwt.sign(
+            user.toJSON(),
+            "29901210fb033a60fcf5ccb65fe9f5662aabe7b376df9f29055a28a22c53d818a70350f7353c8811296c06817642863580c408ba7c26d98262106aa0fed2ff93"
+          );
           res.json({ accessToken: accessToken });
         } else {
           console.log("wrong password");
@@ -76,25 +79,32 @@ function authenticateToken(req, res, next) {
   if (token === null) {
     res.status(401).send("Error");
   }
-  jwt.verify(token, process.env.SECRET, (err, user) => {
-    if (err) throw err;
-    console.log(user);
-    req.user = {
-      _id: user._id,
-      name: user.name,
-      username: user.username,
-      email: user.email,
-    };
-    next();
-  });
+  jwt.verify(
+    token,
+    "29901210fb033a60fcf5ccb65fe9f5662aabe7b376df9f29055a28a22c53d818a70350f7353c8811296c06817642863580c408ba7c26d98262106aa0fed2ff93",
+    (err, user) => {
+      if (err) throw err;
+      console.log(user);
+      req.user = {
+        _id: user._id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+      };
+      next();
+    }
+  );
 }
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb+srv://Chris:Krisi0143171864a@cluster1.exqef.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }
+  )
   .then(() => {
-    http.listen(4000, () => {
+    http.listen(process.env.PORT || 4000, () => {
       console.log("Connected to database");
     });
   })

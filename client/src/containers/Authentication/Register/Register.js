@@ -57,12 +57,12 @@ const Register = (props) => {
       {feedback === "bad" ? (
         <p style={{ color: "red" }}>Email already taken</p>
       ) : null}
-      {feedback === "success" ? <Redirect to="/" /> : null}
+      {feedback === "success" ? <Redirect to="/login" /> : null}
       <button onClick={register}>Register</button>
       <p style={{ color: "grey" }}>
         Already have an account?
         <Link
-          to="/"
+          to="/login"
           style={{ color: "rgb(0, 255, 115)", textDecoration: "none" }}
         >
           Login

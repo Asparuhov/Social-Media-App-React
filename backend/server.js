@@ -19,10 +19,8 @@ const io = require("socket.io")(http, {
 });
 
 io.on("connection", (socket) => {
-  let messages = [];
-  socket.on("messageToServer", (msg) => {
-    io.emit("messageToClient", msg);
-    console.log(msg);
+  socket.on("postToServer", (msg) => {
+    io.emit("postToClient", msg);
   });
 });
 

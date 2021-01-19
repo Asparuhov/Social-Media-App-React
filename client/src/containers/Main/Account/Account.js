@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import classes from "./Account.module.css";
+import { Redirect } from "react-router-dom";
 const Account = (props) => {
   const [currentClicked, setCurrentClicked] = useState("");
   return (
@@ -10,6 +11,7 @@ const Account = (props) => {
           onClick={() => {
             localStorage.clear();
             window.location.reload();
+            <Redirect to="/" />;
           }}
         >
           Logout

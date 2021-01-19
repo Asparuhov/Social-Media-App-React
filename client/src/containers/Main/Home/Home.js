@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Post from "../../../components/Post/Post";
 import classes from "./Home.module.css";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/actions";
+import { io } from "socket.io-client";
 const Home = (props) => {
   let [currentText, setCurrentText] = useState("");
+  const socket = io("http://localhost:4000/", {
+    withCredentials: true,
+    cors: {
+      origin: "http://localhost:4000",
+    },
+  });
+  const sendPost = () => {
+    socket.emit("postToServer", {
+      name: props.user.name.split(" ")[0],
+      username: props.user.username,
+      message: currentText,
+    });
+  };
+  useEffect(() => {
+    socket.on("postToClient", (post) => {
+      props.addPost(post);
+    });
+    return () => {
+      socket.off("postToClient");
+    };
+  }, []);
   return (
     <div className={classes.home}>
       <div className={classes.createPost}>
@@ -16,12 +38,8 @@ const Home = (props) => {
         />
         <button
           onClick={() => {
-            props.addPost({
-              name: props.user.name.split(" ")[0],
-              username: props.user.username,
-              message: currentText,
-            });
             setCurrentText("");
+            sendPost();
           }}
         >
           Post

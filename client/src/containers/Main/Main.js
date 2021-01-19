@@ -6,11 +6,12 @@ import msgLogo from "../../assets/msg.png";
 import profileLogo from "../../assets/profile.png";
 import Account from "./Account/Account";
 import Home from "./Home/Home";
+import { connect } from "react-redux";
 const Main = (props) => {
   return (
     <div className={classes.Main}>
       <div className={classes.navbar}>
-        <Link to="/home">
+        <Link to="/">
           <img className={classes.logo} src={homeLogo} alt="default" />
         </Link>
         <Link to="/messages">
@@ -20,7 +21,9 @@ const Main = (props) => {
           <img className={classes.logo} src={profileLogo} alt="default" />
         </Link>
       </div>
-      <Route path="/home" component={Home} />
+      <Route path="/" exact>
+        {props.isAuth ? <Home /> : null}{" "}
+      </Route>
       <Route
         path="/messages"
         render={() => <h1 style={{ color: "grey" }}>Messages</h1>}
@@ -29,6 +32,11 @@ const Main = (props) => {
     </div>
   );
 };
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.isAuth,
+  };
+};
+export default connect(mapStateToProps)(Main);
 
 //main color: rgb(0, 255, 115)

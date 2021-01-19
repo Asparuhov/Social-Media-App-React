@@ -39,21 +39,3 @@ const toActions = (dispatch) => {
 };
 export default connect(mapStateToProps, toActions)(App);
 
-/*
-  const socket = io("http://localhost:4000/", {
-    withCredentials: true,
-    cors: {
-      origin: "http://localhost:4000",
-    },
-  }); 
-   const sendMessage = (msg) => {
-    socket.emit("messageToServer", msg);
-  };
-  useEffect(()=>{
-    socket.on("messageToClient", (msg) => {
-      setMessages((prevMessage) => prevMessage.concat(msg));
-    });
-    return () => {
-      socket.off('messageToClient')
-    }
-  },[]) */

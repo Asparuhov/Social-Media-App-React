@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {connect} from 'react-redux';
 const Login = (props) => {
   let [loginInfo, setloginInfo] = useState({
@@ -17,12 +17,6 @@ const Login = (props) => {
       .then((res) => {
           localStorage.setItem("token", res.data.accessToken);
           window.location.reload();
-        /*  if (res.data === "bad") {
-           
-            
-        } else {
-          setFeedback("success");
-        } */
       })
       .catch((err) => console.log(err));
   };
@@ -42,13 +36,7 @@ const Login = (props) => {
           setloginInfo({ ...loginInfo, password: e.target.value })
         }
       />
-      {/*  {feedback === "bad" ? (
-        <p style={{ color: "red" }}>Email already taken</p>
-      ) : null}
-      {feedback === "success" ? (
-        <p style={{ color: "green" }}>logined successfuly</p>
-      ) : null} */}
-      <button onClick={login}>login</button>
+      <button onClick={login}>Login</button>
       <p style={{ color: "grey" }}>
         Already have an account?
         <Link

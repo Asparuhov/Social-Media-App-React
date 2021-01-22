@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducer";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://social-chris.herokuapp.com/";
+axios.defaults.baseURL = "http://localhost:4000/";
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
 

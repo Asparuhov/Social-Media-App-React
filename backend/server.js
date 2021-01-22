@@ -12,7 +12,7 @@ const http = require("http").Server(app);
 
 const io = require("socket.io")(http, {
   cors: {
-    origin: "https://social-media-react-964ef.web.app",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },

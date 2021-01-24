@@ -5,7 +5,6 @@ import { Link, Redirect } from "react-router-dom";
 import Login from "../Login/Login";
 const Register = (props) => {
   let [registerInfo, setRegisterInfo] = useState({
-    name: "",
     username: "",
     email: "",
     password: "",
@@ -26,13 +25,6 @@ const Register = (props) => {
   return (
     <div className={classes.Register}>
       <h1>Register</h1>
-      <input
-        type="text"
-        placeholder="Full name"
-        onChange={(e) =>
-          setRegisterInfo({ ...registerInfo, name: e.target.value })
-        }
-      />
       <input
         type="text"
         placeholder="Username"

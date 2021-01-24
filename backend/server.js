@@ -12,7 +12,7 @@ const http = require("http").Server(app);
 
 const io = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000/",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -38,7 +38,6 @@ app.use("/register", async (req, res) => {
       console.log("email already taken");
     } else {
       const newUser = new User({
-        name,
         username,
         email,
         password: hashedPass,
@@ -87,7 +86,6 @@ function authenticateToken(req, res, next) {
       console.log(user);
       req.user = {
         _id: user._id,
-        name: user.name,
         username: user.username,
         email: user.email,
       };

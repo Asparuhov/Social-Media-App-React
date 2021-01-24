@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import classes from "./App.module.css";
+
 import { io } from "socket.io-client";
 import {
   BrowserRouter as Router,
@@ -7,13 +8,17 @@ import {
   Redirect,
   Route,
 } from "react-router-dom";
-import Main from "./containers/Main/Main";
 import Login from "./containers/Authentication/Login/Login";
 import axios from "axios";
 import { connect } from "react-redux";
 import * as actions from "./actions/actions";
 import Account from "./containers/Main/Account/Account";
 import Home from "./containers/Main/Home/Home";
+import Register from "./containers/Authentication/Register/Register";
+
+import homeLogo from "./assets/home.png";
+import msgLogo from "./assets/msg.png";
+import profileLogo from "./assets/profile.png";
 
 function App(props) {
   useEffect(() => {
@@ -26,7 +31,29 @@ function App(props) {
   }, []);
   return (
     <Router>
-      <Route path="/">{props.isAuth ? <Main /> : <Login />}</Route>
+      <Route path="/" exact>
+        {props.isAuth ? (
+          <div className={classes.Main}>
+            <div className={classes.navbar}>
+              <Link to="/home">
+                <img className={classes.logo} src={homeLogo} alt="default" />
+              </Link>
+              <Link to="/messages">
+                <img className={classes.logo} src={msgLogo} alt="default" />
+              </Link>
+              <Link to="/account">
+                <img className={classes.logo} src={profileLogo} alt="default" />
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <Login />
+        )}
+      </Route>
+      <Route path="/home" exact component={Home} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/register" exact component={Register} />
     </Router>
   );
 }

@@ -6,7 +6,7 @@ import * as actions from "../../../actions/actions";
 import { io } from "socket.io-client";
 const Home = (props) => {
   let [currentText, setCurrentText] = useState("");
-  const socket = io("https://social-chris.herokuapp.com/", {
+ /*  const socket = io("https://social-chris.herokuapp.com/", {
     withCredentials: true,
     cors: {
       origin: "https://social-chris.herokuapp.com",
@@ -26,7 +26,7 @@ const Home = (props) => {
     return () => {
       socket.off("postToClient");
     };
-  }, []);
+  }, []); */
   return (
     <div className={classes.home}>
       <div className={classes.createPost}>
@@ -39,7 +39,6 @@ const Home = (props) => {
         <button
           onClick={() => {
             setCurrentText("");
-            sendPost();
           }}
         >
           Post

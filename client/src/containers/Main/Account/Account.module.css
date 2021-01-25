@@ -80,18 +80,17 @@
   text-align: center;
   margin-top: 5px;
 }
-
-.Account .details img {
-  width: 50%;
-  top: 100px;
-  left: 50px;
+.Account .details .profilePicture {
+  width: 25%;
+  position:absolute;
+  top: 1%;
 }
 @keyframes slide {
   from {
     height: 0px;
   }
   to {
-    height: 550px;
+    height: 650px;
   }
 }
 

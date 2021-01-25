@@ -2,6 +2,8 @@ let initialState = {
   user: {},
   isAuth: false,
   posts: [],
+  followers: [],
+  following: []
 };
 
 const reducer = (state = initialState, action) => {

@@ -31,29 +31,28 @@ function App(props) {
   }, []);
   return (
     <Router>
+      <div className={classes.Main}>
+        <div className={classes.navbar}>
+          <Link to="/home">
+            <img className={classes.logo} src={homeLogo} alt="default" />
+          </Link>
+          <Link to="/messages">
+            <img className={classes.logo} src={msgLogo} alt="default" />
+          </Link>
+          <Link to="/account">
+            <img className={classes.logo} src={profileLogo} alt="default" />
+          </Link>
+        </div>
+      </div>
       <Route path="/" exact>
-        {props.isAuth ? (
-          <div className={classes.Main}>
-            <div className={classes.navbar}>
-              <Link to="/home">
-                <img className={classes.logo} src={homeLogo} alt="default" />
-              </Link>
-              <Link to="/messages">
-                <img className={classes.logo} src={msgLogo} alt="default" />
-              </Link>
-              <Link to="/account">
-                <img className={classes.logo} src={profileLogo} alt="default" />
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <Login />
-        )}
+        {props.isAuth ? <Redirect to="/home" /> : <Login />}
       </Route>
       <Route path="/home" exact component={Home} />
       <Route path="/login" exact component={Login} />
       <Route path="/login" exact component={Login} />
       <Route path="/register" exact component={Register} />
+      <Route path="/messages" exact render={() => <h1 style={{color: 'white'}}>Messages</h1>}/>
+      <Route path="/account" exact component={Account} />
     </Router>
   );
 }

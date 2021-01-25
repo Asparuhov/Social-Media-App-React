@@ -83,7 +83,6 @@ function authenticateToken(req, res, next) {
     "29901210fb033a60fcf5ccb65fe9f5662aabe7b376df9f29055a28a22c53d818a70350f7353c8811296c06817642863580c408ba7c26d98262106aa0fed2ff93",
     (err, user) => {
       if (err) throw err;
-      console.log(user);
       req.user = {
         _id: user._id,
         username: user.username,

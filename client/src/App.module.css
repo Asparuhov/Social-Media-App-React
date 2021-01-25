@@ -6,6 +6,9 @@ body {
 input {
   border: 2px solid black;
 }
+.Main{
+  width: 100%;
+}
 .navbar {
   overflow: hidden;
   background-color: rgba(0, 255, 115, 0);

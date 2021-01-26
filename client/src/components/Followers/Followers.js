@@ -1,12 +1,18 @@
 import React from 'react';
 import classes from './Followers.module.css';
-
+import Follower from './Follower';
+import logo from '../../assets/profile.png';
 const Followers = (props) => {
     return (
         <div className={classes.Followers}>
-            <img src={props.src} alt='default' />
-            <p>@{props.username}</p>
-            <button>Unfollow</button>
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata' />
+            <Follower src={logo} username='Krismata'/>
+            
         </div>
     )
 }

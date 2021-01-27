@@ -70,3 +70,5 @@ const toActions = (dispatch) => {
   };
 };
 export default connect(mapStateToProps, toActions)(Home);
+
+

@@ -1,0 +1,67 @@
+.Follower{
+    border: 1px solid grey;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+.Follower img{
+    width: 100px;
+    height: 90px;
+}
+
+.Follower a{
+    top: 50px;
+    text-decoration: none;
+    font-size: 20px;
+    color:black;
+}
+.Follower a:hover{
+    top: 50px;
+    text-decoration: underline;
+    font-size: 20px;
+}
+.Follower button {
+    font-size: 14px;
+    height: 18px;
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 40px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: orange;
+    font-weight: bolder;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: all 0.35s;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(0, 255, 115, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+    background-color: rgb(2, 121, 55);
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    margin-left: 30%;
+  }
+  
+  .Follower button:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+    background-color: rgb(204, 31, 0);
+    color: white;
+    width: 105px;
+    font-size: 15px;
+    cursor: pointer;
+  }

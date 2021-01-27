@@ -98,6 +98,7 @@ mongoose
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
+      useCreateIndex: true,
     }
   )
   .then(() => {

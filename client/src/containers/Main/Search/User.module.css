@@ -1,0 +1,11 @@
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid rgb(0, 255, 170);
+    width: 50%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 25px;
+
+}

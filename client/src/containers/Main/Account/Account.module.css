@@ -71,10 +71,9 @@
 
 .Account .details {
   position: absolute;
-  background-color: rgb(0, 255, 115);
+  background-color: rgba(0, 255, 115, 0.5);
   width: 70%;
   animation: slide 1s ease forwards;
-  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;

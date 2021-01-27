@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classes from "./Account.module.css";
 import { Redirect } from "react-router-dom";
 import profileLogo from "../../../assets/profile.png";
-import Followers from '../../../components/Followers/Followers';
+import Followers from "../../../components/Followers/Followers";
 const Account = (props) => {
   const [currentClicked, setCurrentClicked] = useState("details");
   return (
@@ -23,8 +23,16 @@ const Account = (props) => {
           <button onClick={() => setCurrentClicked("followers")}>
             Followers
           </button>
+          <button
+            onClick={() => {
+              localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Logout
+          </button>
         </div>
-        {currentClicked === "details" ? <h1>Details</h1>: null}
+        {currentClicked === "details" ? <h1>Details</h1> : null}
         {currentClicked === "following" ? <h1>following</h1> : null}
         {currentClicked === "followers" ? <Followers /> : null}
       </div>

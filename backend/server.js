@@ -92,6 +92,15 @@ function authenticateToken(req, res, next) {
     }
   );
 }
+//get users
+app.get("/getUsers", (req, res) => {
+  User.find({}, (err, users) => {
+    if (err) throw err;
+    if (users) {
+      res.send(users);
+    }
+  });
+});
 mongoose
   .connect(
     "mongodb+srv://Chris:Krisi0143171864a@cluster1.exqef.mongodb.net/?retryWrites=true&w=majority",

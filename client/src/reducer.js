@@ -3,7 +3,8 @@ let initialState = {
   isAuth: false,
   posts: [],
   followers: [],
-  following: []
+  following: [],
+  usersList: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         posts: state.posts.concat(action.payload),
+      };
+    case "SETUSERS":
+      return {
+        ...state,
+        usersList: state.usersList.concat(action.payload),
       };
     default:
       return state;

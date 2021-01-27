@@ -73,7 +73,7 @@
   position: absolute;
   background-color: rgba(0, 255, 115, 0.5);
   width: 70%;
-  animation: slide 1s ease forwards;
+  height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,14 +84,7 @@
   position: absolute;
   top: 1%;
 }
-@keyframes slide {
-  from {
-    height: 0px;
-  }
-  to {
-    height: 750px;
-  }
-}
+
 @media (max-width: 1375px) {
   .Account {
     width: 100%;

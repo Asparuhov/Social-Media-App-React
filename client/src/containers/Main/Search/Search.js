@@ -12,7 +12,13 @@ const Search = (props) => {
     console.log(searchInfo);
     axios
       .post("search", searchInfo)
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.data !== "not found") {
+          setSearchResults(res.data[0]);
+        } else {
+          setSearchResults("not found");
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (
@@ -27,7 +33,9 @@ const Search = (props) => {
         <button onClick={search}>Search</button>
       </div>
       <div className={classes.users}>
-        <User src={logo} username="Krismata" />
+        {searchResults ? (
+          <User src={logo} username={searchResults.username} />
+        ) : null}
       </div>
     </>
   );

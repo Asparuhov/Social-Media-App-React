@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classes from "./Account.module.css";
 import { Redirect } from "react-router-dom";
 import profileLogo from "../../../assets/profile.png";
-import Followers from "../../../components/Followers/Followers";
+import Friends from "../../../components/Friends/Friend";
 const Account = (props) => {
   const [currentClicked, setCurrentClicked] = useState("details");
   return (
@@ -17,11 +17,8 @@ const Account = (props) => {
         <p className={classes.tag}>@{props.user.username}</p>
         <div className={classes.navbar}>
           <button onClick={() => setCurrentClicked("details")}>Details</button>
-          <button onClick={() => setCurrentClicked("following")}>
-            Following
-          </button>
-          <button onClick={() => setCurrentClicked("followers")}>
-            Followers
+          <button onClick={() => setCurrentClicked("friends")}>
+            Friends
           </button>
           <button
             onClick={() => {
@@ -33,8 +30,7 @@ const Account = (props) => {
           </button>
         </div>
         {currentClicked === "details" ? <h1>Details</h1> : null}
-        {currentClicked === "following" ? <h1>following</h1> : null}
-        {currentClicked === "followers" ? <Followers /> : null}
+        {currentClicked === "friends" ? <Friends /> : null}
       </div>
     </div>
   );

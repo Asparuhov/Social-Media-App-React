@@ -2,8 +2,7 @@ let initialState = {
   user: {},
   isAuth: false,
   posts: [],
-  followers: [],
-  following: [],
+  friends: [],
   usersList: [],
 };
 

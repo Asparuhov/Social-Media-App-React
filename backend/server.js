@@ -51,6 +51,19 @@ app.use("/register", async (req, res) => {
     }
   });
 });
+//search for a user
+app.post("/search", (req, res) => {
+  const username = req.body.username;
+  console.log(req.body);
+  User.find({ username: username }, (err, user) => {
+    if (err) throw err;
+    if (user) {
+      res.send(user);
+    } else {
+      res.send("not found");
+    }
+  });
+});
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email }).then((user) => {
@@ -101,18 +114,7 @@ app.get("/getUsers", (req, res) => {
     }
   });
 });
-//search for a user
-app.post("/search", (req, res) => {
-  const username = req.body;
-  User.find({ username: username }, (err, user) => {
-    if (err) throw err;
-    if (user) {
-      res.send(user);
-    } else {
-      res.send("not found");
-    }
-  });
-});
+
 mongoose
   .connect(
     "mongodb+srv://Chris:Krisi0143171864a@cluster1.exqef.mongodb.net/?retryWrites=true&w=majority",

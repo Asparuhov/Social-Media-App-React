@@ -4,9 +4,12 @@ import User from "./User";
 import logo from "../../../assets/profile.png";
 import axios from "axios";
 const Search = (props) => {
-  let [searchInfo, setSearchInfo] = useState("");
+  let [searchInfo, setSearchInfo] = useState({
+    username: "",
+  });
   let [searchResults, setSearchResults] = useState();
   const search = () => {
+    console.log(searchInfo);
     axios
       .post("search", searchInfo)
       .then((res) => console.log(res))
@@ -15,8 +18,13 @@ const Search = (props) => {
   return (
     <>
       <div className={classes.search}>
-        <input placeholder="Username" />
-        <button>Search</button>
+        <input
+          placeholder="Username"
+          onChange={(e) =>
+            setSearchInfo({ ...searchInfo, username: e.target.value })
+          }
+        />
+        <button onClick={search}>Search</button>
       </div>
       <div className={classes.users}>
         <User src={logo} username="Krismata" />

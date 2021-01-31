@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Search.module.css";
 import User from "./User";
+import logo from '../../../assets/profile.png';
 const Search = (props) => {
   return (
     <>
@@ -9,7 +10,7 @@ const Search = (props) => {
         <button>Search</button>
       </div>
       <div className={classes.users}>
-              <User />
+        <User src={logo}/>
       </div>
     </>
   );

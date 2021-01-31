@@ -1,21 +1,21 @@
 import React from 'react';
-import classes from './Followers.module.css';
-import Follower from './Follower';
+import classes from './Friends.module.css';
+import Friend from './Friend';
 import logo from '../../assets/profile.png';
-const Followers = (props) => {
+const Friends = (props) => {
     return (
-        <div className={classes.Followers}>
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata' />
-            <Follower src={logo} username='Krismata'/>
+        <div className={classes.Friends}>
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata' />
+            <Friend src={logo} username='Krismata'/>
             
         </div>
     )
 }
 
 
-export default Followers
+export default Friends

@@ -1,4 +1,4 @@
-.Follower{
+.Friend{
     border: 1px solid grey;
     display:flex;
     flex-direction: row;
@@ -7,23 +7,23 @@
     height: 80px;
 }
 
-.Follower img{
+.Friend img{
     width: 100px;
     height: 90px;
 }
 
-.Follower a{
+.Friend a{
     top: 50px;
     text-decoration: none;
     font-size: 20px;
     color:black;
 }
-.Follower a:hover{
+.Friend a:hover{
     top: 50px;
     text-decoration: underline;
     font-size: 20px;
 }
-.Follower button {
+.Friend button {
     font-size: 14px;
     height: 18px;
     display: block;
@@ -53,7 +53,7 @@
     margin-left: 30%;
   }
   
-  .Follower button:hover {
+  .Friend button:hover {
     border: 1px solid;
     box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
     outline-color: rgba(255, 255, 255, 0);

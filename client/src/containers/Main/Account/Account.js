@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import classes from "./Account.module.css";
-import { Redirect } from "react-router-dom";
 import profileLogo from "../../../assets/profile.png";
 import Friends from "../../../components/Friends/Friends";
 const Account = (props) => {

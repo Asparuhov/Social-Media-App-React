@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Post from "../../../components/Post/Post";
 import classes from "./Home.module.css";
 import { connect } from "react-redux";
@@ -51,3 +51,24 @@ const toActions = (dispatch) => {
 export default connect(mapStateToProps, toActions)(Home);
 
 
+/*  const socket = io("https://social-chris.herokuapp.com/", {
+    withCredentials: true,
+    cors: {
+      origin: "https://social-chris.herokuapp.com",
+    },
+  });
+  const sendPost = () => {
+    socket.emit("postToServer", {
+      name: props.user.name.split(" ")[0],
+      username: props.user.username,
+      message: currentText,
+    });
+  };
+  useEffect(() => {
+    socket.on("postToClient", (post) => {
+      props.addPost(post);
+    });
+    return () => {
+      socket.off("postToClient");
+    };
+  }, []); */

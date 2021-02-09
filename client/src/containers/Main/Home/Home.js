@@ -6,27 +6,6 @@ import * as actions from "../../../actions/actions";
 import { io } from "socket.io-client";
 const Home = (props) => {
   let [currentText, setCurrentText] = useState("");
- /*  const socket = io("https://social-chris.herokuapp.com/", {
-    withCredentials: true,
-    cors: {
-      origin: "https://social-chris.herokuapp.com",
-    },
-  });
-  const sendPost = () => {
-    socket.emit("postToServer", {
-      name: props.user.name.split(" ")[0],
-      username: props.user.username,
-      message: currentText,
-    });
-  };
-  useEffect(() => {
-    socket.on("postToClient", (post) => {
-      props.addPost(post);
-    });
-    return () => {
-      socket.off("postToClient");
-    };
-  }, []); */
   return (
     <div className={classes.home}>
       <div className={classes.createPost}>

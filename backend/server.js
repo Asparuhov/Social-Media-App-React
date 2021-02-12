@@ -33,6 +33,7 @@ app.post("/addToFriendList", (req, res) => {
   User.findByIdAndUpdate(
     user._id,
     { $push: { friendsList: [user] } },
+    { new: true },
     (result, err) => {
       if (err) throw err;
       if (result) console.log("success");

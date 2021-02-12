@@ -38,9 +38,15 @@ function App(props) {
       })
       .catch((err) => console.log(err));
   }, []);
+  const addFriend = () => {
+    axios
+      .post("addToFriendList", { user: props.user })
+      .then(() => console.log("Sucess"));
+  };
   return (
     <Router>
       <div className={classes.Main}>
+        <button onClick={() => addFriend()}>Add</button>
         <div className={classes.navbar}>
           <Link to="/home">
             <img className={classes.logo} src={homeLogo} alt="default" />
@@ -88,6 +94,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     isAuth: state.isAuth,
+    friends: state.friends,
   };
 };
 const toActions = (dispatch) => {

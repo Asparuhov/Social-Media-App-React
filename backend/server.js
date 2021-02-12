@@ -28,6 +28,18 @@ app.get("/user", authenticateToken, (req, res, next) => {
   res.send(req.user);
 });
 
+app.post("/addToFriendList", (req, res) => {
+  const user = req.body.user;
+  User.findByIdAndUpdate(
+    user._id,
+    { $push: { friendsList: [user] } },
+    (result, err) => {
+      if (err) throw err;
+      if (result) console.log("success");
+    }
+  );
+});
+
 app.use("/register", async (req, res) => {
   const { name, username, email, password } = req.body;
   const salt = await bcrypt.genSalt();
